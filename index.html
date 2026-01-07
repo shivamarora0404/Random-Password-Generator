@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="component-style.css">
+
+  <title>Shivam Arora | Password generator app</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="app-container">
+
+            <header class="pw-head">
+                <h1 class="pw-head__heading"></h1>
+            </header>
+
+            <main class="pw-main">  
+
+                <section class="pw-main__box">
+                    <article id="pw-password" class="pw-box__password placeholder">P4$5W0rD!</article>
+                    <article class="pw-box__copy">
+                        <span id="pw-copy-msg" class="pw-box__copy-msg hide">COPIED!</span>
+                        <button class="pw-box__copy-icon" id="pw-copy-btn">
+                            <img src="./assets/images/icon-copy.svg" alt="copy icon" />
+                        </button>
+                    </article>
+                </section>
+
+                <form class="pw-main__options" id="pw-options-form">
+                    <article class="char-length__label">
+                        <span class="char-length__name">Character Length</span>
+                        <span class="char-length__value" id="char-length-value">8</span>
+
+                    </article>
+                    <label for="character-length-input" class="pw-options__char-length slider">
+                        <input type="range" name="charLength" id="char-length-input" class="char-length__input" min="5" max="20"
+                        step="1" value="8">
+                    </label>
+                    <fieldset class="pw-main__checkboxes checkbox-fieldset">
+                        <label class="checkbox">
+                            <input class="checkbox__input" type="checkbox" name="includeUppercase" checked>
+                            <span class="checkbox__indicator">
+                                <img src="./assets/images/icon-check.svg" class="checkmark"/>
+
+                            </span>
+                            <span class="checkbox__label">Include Uppercase Letters</span>
+
+                        </label>
+                        <label class="checkbox">
+                            <input class="checkbox__input" type="checkbox" name="includeLowercase" checked>
+                            <span class="checkbox__indicator">
+                <img src="./assets/images/icon-check.svg" class="checkmark" />
+              </span>
+              <span class="checkbox__label">Include Lowercase Letters</span>
+            </label>
+
+            <label class="checkbox">
+              <input class="checkbox__input" type="checkbox" name="includeNumbers" checked>
+              <span class="checkbox__indicator">
+                <img src="./assets/images/icon-check.svg" class="checkmark" />
+              </span>
+              <span class="checkbox__label">Include Numbers</span>
+            </label>
+
+            <label class="checkbox">
+              <input class="checkbox__input" type="checkbox" name="includeSymbols">
+              <span class="checkbox__indicator">
+                <img src="./assets/images/icon-check.svg" class="checkmark" />
+              </span>
+              <span class="checkbox__label">Include Symbols</span>
+            </label>
+
+          </fieldset>
+
+          <article class="pw-options__strength">
+            <p class="pw-strength__title">STRENGTH</p>
+            <div class="pw-strength__indicator" id="pw-strength-indicator">
+              <div class="strength-indicator__box"></div>
+              <div class="strength-indicator__box"></div>
+              <div class="strength-indicator__box"></div>
+              <div class="strength-indicator__box"></div>
+            </div>
+          </article>
+
+          <button type="submit" class="pw-generate-btn">
+            <span class="pw-generate-btn__label">Generate</span>
+            <span class="pw-generate-btn__icon">
+              <img src="./assets/images/icon-arrow-right.svg" alt="" />
+            </span>
+          </button>
+
+        </form>
+
+      </main>
+      <div class="msg-tooltip hide" id="msg-tooltip"></div> <!-- this is a tooltip to show error messages -->
+    </div>
+
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+

@@ -1,0 +1,259 @@
+:root {
+    --clr-white: hsl(0deg, 100%, 100%);
+    --clr-black: hsl(0deg, 0%, 0%);
+    --clr-grey-950: hsl(255deg, 22%, 4%);
+    --clr-grey-900: hsl(248deg, 17%, 9%);
+    --clr-grey-850: hsl(248deg, 15%, 11%);
+    --clr-grey-800: hsl(248deg, 10%, 15%);
+    --clr-grey-700: hsl(248deg, 5%, 34%);
+    --clr-grey-600: hsl(251deg, 9%, 53%);
+    --clr-grey-200: hsl(252deg, 11%, 91%);
+    --clr-green: hsl(127deg, 100%, 82%);
+    --clr-yellow: hsl(42deg, 91%, 68%);
+    --clr-orange: hsl(13deg, 95%, 66%);
+    --clr-red: hsl(0deg, 91%, 63%);
+    --clr-gradient: linear-gradient(to right, #14131B, #08070B);
+
+    /* typography */
+    --tp-1: normal normal 700 2rem/1.3 "JetBrains Mono", monospace;
+    --tp-2: normal normal 700 1.5rem/1.3 "JetBrains Mono", monospace;
+    --tp-3: normal normal 700 1.125rem/1.3 "JetBrains Mono", monospace;
+    --tp-4: normal normal 700 1rem/1.3 "JetBrains Mono", monospace;
+}
+
+/* default reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* typography - mobile first*/
+.pw-head__heading,
+.pw-strength__title { 
+    font: var(--tp-4); 
+    color: var(--clr-grey-600);
+}
+.pw-box__password,
+.char-length__value { 
+    font: var(--tp-2); 
+    color: var(--clr-grey-200);
+}
+.char-length__value {
+    color: var(--clr-green);
+}
+.pw-box__copy-msg {
+    font: var(--tp-4);
+    color: var(--clr-green);
+}
+.pw-main__checkboxes,
+.char-length__name { 
+    font: var(--tp-4); 
+    color: var(--clr-grey-200);
+}
+.pw-strength__indicator { 
+    font: var(--tp-3); 
+    color: var(--clr-grey-200);
+}
+.pw-generate-btn__label { 
+    font: var(--tp-4); 
+    color: var(--clr-grey-800);
+}
+
+
+/* layout - mobile first */
+body {
+    display: grid;
+    background: var(--clr-grey-950);
+}
+
+.wrapper {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+
+    --app-container-gap: 1rem;
+    --main-gap: 1rem; 
+    --password-pad: 1rem;
+    --options-pad: 1rem;
+    --char-length-gap: 0.5rem;
+    --strength-pad: 1rem; 
+    --button-pad: 1rem;
+}
+
+.app-container {
+    position: relative;
+    display: grid;
+    gap: var(--app-container-gap);
+    align-content: start;
+    margin: 4rem 1rem;
+    max-width: 33.75rem;
+    width: calc(100% - 2 * 1rem);
+    min-width: max-content;
+}
+
+.pw-main {
+    display: grid;
+    gap: var(--main-gap);
+}
+.pw-main__box {
+    display: flex;
+    gap: 1rem;
+    background: var(--clr-grey-800);
+    justify-content: space-between;
+    padding: var(--password-pad);
+}
+
+.pw-box__copy {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.pw-box__copy-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.pw-box__copy-icon:hover > img,
+.pw-box__copy-icon:active > img {
+    filter: brightness(0) invert(1);
+}
+
+.pw-main__options {
+    display: grid;
+    gap: 2rem;
+    padding: var(--options-pad);
+    background: var(--clr-grey-800);
+}
+.pw-options__char-length {
+    display: flex;
+    flex-direction: column;
+    gap: var(--char-length-gap);
+}
+.char-length__label {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    height: 2rem;
+}
+.pw-main__checkboxes {
+    display: grid;
+    gap: 1rem;
+    justify-items: start;
+}
+.pw-options__strength {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--clr-grey-850);
+    padding: var(--strength-pad);
+}
+
+.pw-strength__indicator {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.strength-indicator__box {
+    width: 0.625rem;
+    height: 1.75rem;
+    border: 2px solid var(--clr-grey-200);
+}
+.pw-strength__label {
+    margin-inline-end: 0.5rem;
+}
+
+.pw-generate-btn {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: var(--button-pad);
+    background: var(--clr-green);
+    border: none;
+    cursor: pointer;
+}
+
+/* additional styles */
+.hide {
+    visibility: hidden;
+}
+.placeholder {
+    color: var(--clr-grey-700);
+}
+
+.msg-tooltip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    padding: 0.5rem 1rem;
+    top: 29rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgb(110, 0, 0);
+    background: rgb(255, 237, 237);
+    border-radius: 0.3rem;
+    box-shadow: 0 0 1rem 0 rgb(255, 193, 193);
+    color: rgb(170, 0, 0);
+    font: var(--tp-4);
+    text-align: center;
+}
+.close-tooltip-btn {
+    color: black;
+}
+
+/* password strength bar fill colour */
+.pw-strength__indicator.strong > .strength-indicator__box:nth-child(-n+4) { background-color: var(--clr-green); border: none; }
+.pw-strength__indicator.medium > .strength-indicator__box:nth-child(-n+3) { background-color: var(--clr-yellow); border: none; }
+.pw-strength__indicator.weak > .strength-indicator__box:nth-child(-n+2) { background-color: var(--clr-orange); border: none; }
+.pw-strength__indicator.too-weak > .strength-indicator__box:nth-child(-n+1) { background-color: var(--clr-red); border: none; }
+
+.pw-strength__indicator::before { 
+    display: block; 
+    margin-inline-end: 0.5rem;
+    color: var(--clr-grey-200); 
+    text-transform: uppercase;
+}
+
+.pw-strength__indicator.strong::before { content: "strong"; }
+.pw-strength__indicator.medium::before { content: "medium"; }
+.pw-strength__indicator.weak::before { content: "weak"; }
+.pw-strength__indicator.too-weak::before { content: "too weak!"; }
+
+
+/* typography - tablet adn desktop */
+@media screen and (min-width: 27rem) {
+    .pw-box__password,
+    .char-length__value { 
+        font: var(--tp-1); 
+    }
+    .pw-head__heading,
+    .pw-strength__indicator { 
+        font: var(--tp-2); 
+    }
+    .pw-box__copy-msg, 
+    .pw-main__checkboxes,
+    .char-length__name,
+    .pw-strength__title,
+    .pw-generate-btn__label { 
+        font: var(--tp-3); 
+    }
+    .wrapper {
+        --app-container-gap: 2rem;
+        --main-gap: 1.5rem; 
+        --strength-pad: 1rem 2rem; 
+        --password-pad: 1rem 2rem;
+        --button-pad: 1.5rem;
+        --options-pad: 1.5rem 2rem;
+        --char-length-gap: 1rem;
+    }
+}
